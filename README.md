@@ -1,1 +1,1 @@
-0x01-shell_permissions
+0x03. Shell, init files, variables and expansions
