@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # displays clock from 0 to 12 hrs and 1 to 59 mins
 hrs=0
 min=1
