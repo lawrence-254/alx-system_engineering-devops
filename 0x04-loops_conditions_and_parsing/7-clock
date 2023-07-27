@@ -1,0 +1,21 @@
+#!/bin/env bash
+# displays clock from 0 to 12 hrs and 1 to 59 mins
+hrs=0
+min=1
+while [ $hrs -le 12 ]; do
+	echo "Hour: $hrs"
+	while [ $min -le 60 ]; do
+		echo $min
+		(( min++ ))
+		if  [ $min -eq 60 ]
+		then
+			(( min = 1 ))
+			(( hrs++ ))
+			echo "Hour: $hrs"
+		fi
+		if [ $hrs -eq 12 ]
+		then
+			break
+		fi
+	done
+done
