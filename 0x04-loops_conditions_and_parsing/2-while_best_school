@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times
-zero=0
+zero=1
 while [ $zero -le 10 ]; do
 	echo "Best School"
 	((zero++))
