@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+one=1
+ten=10
+until [ $one -ge $ten ]; do
+	echo "Best School"
+	(( one++ ))
+done
