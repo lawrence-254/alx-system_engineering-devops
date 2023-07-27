@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# a Bash script that displays numbers from 1 to 100.
+buzzinga=1
+while [ $buzzinga -le 100 ]; do
+	fizz=$((buzzinga % 3))
+	buzz=$((buzzinga % 5))
+	if [ $fizz -eq 0 ] && [ $buzz -eq 0 ]
+	then
+		echo "FizzBuzz"
+	elif [ $buzz -eq 0 ];
+	then
+		echo "Buzz"
+	elif [ $fizz -eq 0 ];
+	then
+		echo "Fizz"
+	else
+		echo $buzzinga
+	fi
+	(( buzzinga++ ))
+done
