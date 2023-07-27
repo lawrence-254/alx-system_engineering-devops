@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# displays content of the current directory In a list format
+# only the part of the name after the first dash is displayed
+for list in  *; do
+	if [ -d "$list" ] || [ -f "$list" ];
+	then
+		if [[ "$list" != .* ]];
+		then
+			result=$(echo "$list" | cut -d'-' -f2-)
+			if [ -n "$result" ];
+			then
+				echo "$result"
+			fi
+		fi
+	fi
+done
