@@ -3,4 +3,9 @@
 
 ./4-to_infinity_and_beyond &
 
+sleep 30
+
 kill "$!"
+
+
+echo "Terminated"
