@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #displays current processes
 
-ps -uf
+ps -u -f
