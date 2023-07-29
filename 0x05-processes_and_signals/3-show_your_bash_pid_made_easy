@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# bash that displays PID with the process name containing word bash
+
+pids=$(pgrep -f bash)
+
+for pid in $pids; do
+	pnm=$(ps -p $pid -o comm=)
+	echo $pid $pnm
+done
