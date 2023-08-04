@@ -1,8 +1,4 @@
 #!/usr/bin/env ruby
 #  regular expression that will match a pattern
 
-from = ARGV[0].scan(/[a-zA-Z]\d*/).flatten
-to = ARGV[0].scan(/\w+/).flatten
-flags = ARGV[0].scan(/\w+/).flatten
-
-puts "#{from},#{to},#{flags}"
+puts ARGV[0].scan(/(?<=(?:from:|to:|flags:))([a-zA-Z\-:+0-9]+)/).join(",")
