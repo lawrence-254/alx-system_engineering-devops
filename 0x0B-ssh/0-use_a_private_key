@@ -2,7 +2,7 @@
 #a Bash script that uses ssh to connect to your server using
 #the private key ~/.ssh/school with the user ubuntu
 
-server="263361-web-01"
+server="35.175.134.98"
 user="ubuntu"
 private_key="~/.ssh/school"
 
