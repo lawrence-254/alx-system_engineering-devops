@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# piece of software generating and serving HTML pages, let’s install one
+
+#check and get updates
+apt-get -y update
+
+#install
+apt-get -y install
+
+#configure nginx to listen to port 80
+ufw allow 'Nginx HTTP'
+
+#configures default nginx landing page
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+#start nginx
+service nginx restart
