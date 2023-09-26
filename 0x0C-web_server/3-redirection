@@ -14,15 +14,22 @@ sudo ufw allow 'Nginx Full'
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 #redirection
-#sed -i "/^\tlocation \// i\ /server_name _;/a \
-#\tlocation /redirect_me {\
-#\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\
-#\t}" /etc/nginx/sites-available/default
-sudo tee -a /etc/nginx/sites-available/default <<EOL
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
-EOL
+printf %s "server {
+        listen 80;
+        listen [::]:80 default_server;
+        root   /var/www/html;
+        index  index.html index.htm;
+
+        location /redirect_me {
+                return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+        }
+
+        error_page 404 /404.html;
+        location /404 {
+                root /var/www/html;
+                internal;
+                }
+}" > /etc/nginx/sites-available/default
 
 # Restart Nginx to apply changes
 sudo service nginx restart
