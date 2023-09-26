@@ -2,20 +2,20 @@
 # piece of software generating and serving HTML pages, let’s install one
 
 #check and get updates
-sudo apt-get update -y
+sudo apt-get -y update
 
 #install
-sudo apt-get install nginx -y
+sudo apt-get -y install nginx
 #start nginx
 service nginx start
 
 #configure nginx to listen to port 80
 sudo ufw allow 'Nginx HTTP'
-#sudo ufw allow 22/tcp
+sudo ufw allow 22/tcp
 
 #configures default nginx landing page
 sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
 
-#service nginx restart
+service nginx restart
 
-sudo nginx -s reload
+#sudo nginx -s reload
