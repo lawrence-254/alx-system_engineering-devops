@@ -11,11 +11,11 @@ apt-get -y install
 ufw allow 'Nginx HTTP'
 
 #configures default nginx landing page
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 
 #start nginx
-service nginx start
+#service nginx start
 
-service nginx restart
+#service nginx restart
 
 service nginx reload
