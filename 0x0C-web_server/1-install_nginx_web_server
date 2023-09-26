@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
-# install and configure nginx
+# Install and configure Nginx
 
+# Update package lists
 sudo apt-get update
+
+# Install Nginx
 sudo apt-get -y install nginx
+
+# Allow HTTP traffic through the firewall
 sudo ufw allow 'Nginx Full'
+
+# Create a simple "Hello World!" index page
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
+# Restart Nginx to apply changes
 sudo service nginx restart
-#sudo service nginx start
