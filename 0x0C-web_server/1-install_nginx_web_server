@@ -2,10 +2,10 @@
 # piece of software generating and serving HTML pages, let’s install one
 
 #check and get updates
-apt-get -y update
+sudo apt-get -y update
 
 #install
-apt-get -y install
+sudo apt-get -y install
 
 #configure nginx to listen to port 80
 ufw allow 'Nginx HTTP'
@@ -18,4 +18,4 @@ sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 
 #service nginx restart
 
-service nginx reload
+sudo nginx -s reload
