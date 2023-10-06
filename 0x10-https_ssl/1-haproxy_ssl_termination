@@ -37,10 +37,9 @@ defaults
 frontend http_front
         bind *:80
         bind *:443 ssl crt /etc/haproxy/certs/www.pegaus.tech.pem
-        mode http
         default_backend http_back
 
 backend http_back
         balance roundrobin
-        server 263361-web-01 52.91.152.165:80
-	server 263361-web-02 3.85.33.67:80
+        server web-01 52.91.152.165:80
+	server web-02 3.85.33.67:80
