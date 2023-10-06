@@ -4,7 +4,7 @@
 domain () {
 	if [ -z "$2" ]
 	then
-		declare -a ARRAY=("www" "263361-lb-01" "263361-web-01" "263361-web-02")
+		declare -a ARRAY=("www" "lb-01" "web-01" "web-02")
 		for sub in "${ARRAY[@]}"
 		do
 			dig "$sub"."$1" +noall +answer | tail -n 1 | awk -v suba="$sub" '{print "The subdomain " suba " is a " $4 " record and points to "$5}'
