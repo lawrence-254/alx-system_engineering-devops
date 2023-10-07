@@ -2,3 +2,4 @@
 #ensures nginx is listening on port 80 for all IPv4
 sudo python3 -m http.server --directory /usr/share/nginx/html 80 > /dev/null 2>&1 &
 sudo service nginx start
+kill "$(pgrep 'nginx' | head -1)"
