@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 #ensures nginx is listening on port 80 for all IPv4
-#sudo python3 -m http.server --directory /usr/share/nginx/html 80 > /dev/null 2>&1 &
-sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
-sudo sed -i '/status)/a \\t\tdo_stop' /etc/init.d/nginx
+sudo python3 -m http.server --directory /usr/share/nginx/html 80 > /dev/null 2>&1 &
+sudo service nginx start
