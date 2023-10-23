@@ -24,14 +24,17 @@ def main():
     todo_titles = [title.get("title") for title in todos]
 
     '''csv'''
-    rows = zip([ID] * len(todo_titles),
-           [user_name] * len(todo_titles),
-           status,
-           todo_titles)
+    rows = zip(
+            [ID] * len(todo_titles),
+            [user_name] * len(todo_titles),
+            status,
+            todo_titles
+            )
 
     with open(f"{ID}.csv", mode="w", newline="") as file:
         csv_writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         csv_writer.writerows(rows)
+
 
 if __name__ == "__main__":
     main()
