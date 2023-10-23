@@ -30,7 +30,7 @@ def main():
                 "completed": status,
                 "username": user_name
                 }
-        todo_list.append(desc}
+        todo_list.append(desc)
     data = {str(ID): todo_list}
 
     with open(f"{ID}.json", mode="w", newline="") as file:
