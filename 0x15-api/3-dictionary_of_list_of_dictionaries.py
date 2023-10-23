@@ -2,7 +2,6 @@
 '''Python script that returns information aboutTODO list progress.'''
 import json
 import requests
-import sys
 
 
 def main():
