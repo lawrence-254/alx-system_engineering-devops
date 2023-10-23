@@ -26,7 +26,7 @@ def main():
                         "username": user_name
                         }
                 todo_list.append(desc)
-            data[str(assoc_id)] = todo_list
+            data[str(user_id)] = todo_list
 
     with open("todo_all_employees.json", mode="w", encoding="UTF-8") as file:
         json.dump(data, file)
