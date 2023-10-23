@@ -23,7 +23,11 @@ def main():
     status = [task.get("completed") for task in todos]
     todo_titles = [title.get("title") for title in todos]
 
-    rows = zip([ID] * len(todo_titles), [user_name] * len(todo_titles), status, todo_titles)
+    '''csv'''
+    rows = zip([ID] * len(todo_titles),
+           [user_name] * len(todo_titles),
+           status,
+           todo_titles)
 
     with open(f"{ID}.csv", mode="w", newline="") as file:
         csv_writer = csv.writer(file, quoting=csv.QUOTE_ALL)
