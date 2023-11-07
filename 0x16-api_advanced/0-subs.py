@@ -7,6 +7,7 @@ Returns 0 If an invalid subreddit is given
 """
 import requeststs
 
+
 def number_of_subscribers(subreddit):
     """
     Queries a given subredit API and returns number subscribers to the
@@ -21,9 +22,8 @@ def number_of_subscribers(subreddit):
             (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
     headers = {'User-Agent': user_agent}
 
-    response = requests.get('https://www.reddit.com/r/{subreddit}/new/.json',
-            headers=headers,
-            allow_redirects=False)
+    response = requests.get('https://www.reddit.com/r/\
+            {subreddit}/new/.json', headers=headers, allow_redirects=False)
 
     subs = 0
     if response.status_code == 200:
