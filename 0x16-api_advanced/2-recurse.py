@@ -8,7 +8,7 @@ Returns 0 If an invalid subreddit is given
 import requests
 
 
-def recurse(subreddit, hot_list=[], after=None)):
+def recurse(subreddit, hot_list=[], after=None):
     """
     Queries a given subredit API and returns number subscribers to the
     subredit
