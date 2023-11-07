@@ -8,7 +8,7 @@ Returns 0 If an invalid subreddit is given
 import requests
 
 
-def recurse(subreddit, hot_list=[], after=None):
+def recurse(subreddit, hot_list=[], after=None, word_counter={}):
     """
     Queries a given subredit API and returns number subscribers to the
     subredit
@@ -35,11 +35,22 @@ def recurse(subreddit, hot_list=[], after=None):
             post = posts.get('data', {})
             title = post.get('title')
             if title is not None:
-                hot_list.append(title)
+                for word in title.lower().split():
+                    for i in range(len(word_list)):
+                        if word_list[i].lower() == word:
+                            eq = word_counter.get(word_list[i], 0) + 1
+                            word_counter[word_list[i]] = eq
         after = resp_dict.get('after')
         if after is None:
-            return hot_list
-        else:
-            return (recurse(subreddit, hot_list, after))
+            if word_counter != {}:
+                data_dict = {}
+                for key in word_counter:
+                    if data_dict.get(word_counter[key]) is None:
+                        data_dict[word_counter[key]] = [key]
+                    else:
+                        data_dict[word_counter[key]].append(key)
+                for key in sorted(data_dict.keys(), reverse=True):
+                    for word in sorted(data_dict[key]):
+                        print(f"{word}: {key}")
     else:
-        return None
+        count_words(subreddit, word_list, after, word_counter)
