@@ -8,7 +8,7 @@ Returns 0 If an invalid subreddit is given
 import requests
 
 
-def recurse(subreddit, word_list, hot_list=[], after=None, word_counter={}):
+def count_words(subreddit, word_list, hot_list=[], after=None, word_counter={}):
     """
     Queries a given subredit API and returns number subscribers to the
     subredit
