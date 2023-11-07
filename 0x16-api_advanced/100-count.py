@@ -8,7 +8,7 @@ Returns 0 If an invalid subreddit is given
 import requests
 
 
-def recurse(subreddit, hot_list=[], after=None, word_counter={}):
+def recurse(subreddit, word_list, hot_list=[], after=None, word_counter={}):
     """
     Queries a given subredit API and returns number subscribers to the
     subredit
@@ -23,7 +23,7 @@ def recurse(subreddit, hot_list=[], after=None, word_counter={}):
     headers = {'User-Agent': user_agent}
     url = f'https://www.reddit.com/r/{subreddit}/new/.json?limit=100'
     if after is not None:
-        url += '&after' + after
+        url += '&after=' + after
 
     response = requests.get(url, headers=headers, allow_redirects=False)
 
