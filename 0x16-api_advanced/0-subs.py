@@ -21,6 +21,17 @@ def number_of_subscribers(subreddit):
             (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
     headers = {'User-Agent': user_agent}
 
-    response = requests.get('https://www.reddit.com/r/{subreddit}/new/.json?limit=1',
+    response = requests.get('https://www.reddit.com/r/{subreddit}/new/.json',
             headers=headers,
             allow_redirects=False)
+
+    subs = 0
+    if response.status_code == 200:
+        resp_dict = response.json()
+        resp_dict = resp_dict.get('data', {})
+        resp_list = resp_dict.get('children', [])
+        if len(resp_list) != 0:
+            resp_dict = resp_list[0]
+            resp_dict = resp_dict.get('data', {})
+            subs = resp_dict.get('subreddit_subscribers', 0)
+    return subs
